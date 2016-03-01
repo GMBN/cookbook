@@ -32,6 +32,14 @@ node[:deploy].each do |app_name, deploy|
     action :create
   end
   
+  template "#{deploy[:deploy_to]}/current/config/autoload/db.local.php" do
+    source "db.local.php.erb"
+    mode "0644"
+    variables(
+      :environment_variables => deploy[:environment_variables]
+    )
+  end
+  
  execute 'doctrine-update' do
    command "php #{deploy[:deploy_to]}/current/vendor/bin/doctrine-module orm:schema-tool:update -f"
    action :run
