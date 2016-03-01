@@ -36,7 +36,7 @@ node[:deploy].each do |app_name, deploy|
     source "db.local.php.erb"
     mode "0644"
     variables(
-      :environment_variables => deploy[:environment_variables]
+      :environment_variables => deploy["environment_variables"]
     )
   end
   
