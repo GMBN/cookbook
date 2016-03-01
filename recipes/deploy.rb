@@ -9,7 +9,7 @@ node[:deploy].each do |app_name, deploy|
     action :create
   end
   
-  directory "#{deploy[:deploy_to]}/current/public/correspondentes/img/thumbnail" do
+  directory "#{deploy[:deploy_to]}/current/public/correspondentes/img/thumbnail/150x130" do
     recursive true
     user deploy[:user]
     group deploy[:group]
