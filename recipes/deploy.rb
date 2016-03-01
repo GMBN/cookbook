@@ -1,7 +1,13 @@
-include_recipe 'deploy'
-
 node[:deploy].each do |app_name, deploy|
-  directory "#{deploy[:deploy_to]}/current/data/DoctrineORMModule/Proxy" do
+  directory "#{deploy[:deploy_to]}/current/data" do
+    recursive true
+    user deploy[:user]
+    group deploy[:group]
+    mode 0775
+    action :create
+  end
+  
+  directory "#{deploy[:deploy_to]}/current/public/correspondentes" do
     recursive true
     user deploy[:user]
     group deploy[:group]
@@ -15,10 +21,5 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     action :create
   end
-  
- execute 'permissao' do
-   command "chmod -R 775 #{deploy[:deploy_to]}/{current/public/correspondentes,current/data}"
-   action :run
- end
   
 end
