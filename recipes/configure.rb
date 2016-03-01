@@ -1,18 +1,8 @@
-node[:deploy].each do |app_name, deploy|
-  directory "#{deploy[:deploy_to]}/current/data/DoctrineORMModule/Proxy" do
-    recursive true
-    user deploy[:user]
-    group deploy[:group]
-    mode 0775
-    action :create
+case node['platform_family']
+when 'rhel', 'fedora'
+  # centos php compiled with curl
+when 'debian'
+  package 'php5-intl' do
+    action :install
   end
-
-  
- file "#{deploy[:deploy_to]}/current/public/complemento/cidades.json" do
-    mode 0775
-    user deploy[:user]
-    group deploy[:group]
-    action :create
-  end
-  
 end
