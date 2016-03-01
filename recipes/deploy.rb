@@ -1,3 +1,5 @@
+include_recipe 'deploy'
+
 node[:deploy].each do |app_name, deploy|
   directory "#{deploy[:deploy_to]}/current/data" do
     recursive true
