@@ -32,4 +32,9 @@ node[:deploy].each do |app_name, deploy|
     action :create
   end
   
+ execute 'doctrine-update' do
+   command "php #{deploy[:deploy_to]}/current/vendor/bin/doctrine-module orm:schema-tool:update -f"
+   action :run
+ end
+  
 end
