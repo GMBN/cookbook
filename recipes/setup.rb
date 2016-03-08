@@ -19,6 +19,6 @@ file '/etc/timezone' do
   owner "root"
   group "root"
   mode "00644"
-  content 'America/Sao_Paulo'
+  content 'America/Noronha'
   notifies :run, "execute[update-tzdata]", :immediately
 end
