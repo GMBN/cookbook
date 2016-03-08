@@ -48,7 +48,7 @@ node[:deploy].each do |app_name, deploy|
  cron 'rotina' do
   hour '0'
   minute '0'
-  command '/usr/bin/php #{deploy[:deploy_to]}/current/public/index.php rotina-comarca '
+  command "/usr/bin/php #{deploy[:deploy_to]}/current/public/index.php rotina-comarca "
 end
   
 end
