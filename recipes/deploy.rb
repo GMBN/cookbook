@@ -44,5 +44,11 @@ node[:deploy].each do |app_name, deploy|
    command "php #{deploy[:deploy_to]}/current/vendor/bin/doctrine-module orm:schema-tool:update -f"
    action :run
  end
+ 
+ cron 'rotina' do
+  hour '0'
+  minute '0'
+  command '/usr/bin/php #{deploy[:deploy_to]}/current/public/index.php rotina-comarca '
+end
   
 end
