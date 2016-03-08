@@ -8,7 +8,7 @@ when 'debian'
 end
 
 execute 'export-timezone' do
-   command "export TZ=America/Noronha"
+   command "export TZ=America/Sao_Paulo"
    action :nothing
  end
  
@@ -16,6 +16,6 @@ file '/etc/timezone' do
   owner "root"
   group "root"
   mode "00644"
-  content 'America/Noronha'
-  notifies :run, "execute[export-timezone]"
+  content 'America/Sao_Paulo'
+  notifies :run, "execute[export-timezone]", :immediately
 end
