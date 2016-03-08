@@ -17,5 +17,5 @@ end
 
 execute 'export-timezone' do
    command "export TZ=America/Noronha"
-   action :run
+   action :nothing
  end
