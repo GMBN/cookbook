@@ -8,6 +8,20 @@ node[:deploy].each do |app_name, deploy|
     mode 0775
     action :create
   end
+  directory "#{deploy[:deploy_to]}/current/data/DoctrineORMModule" do
+    recursive true
+    user deploy[:user]
+    group deploy[:group]
+    mode 0775
+    action :create
+  end
+  directory "#{deploy[:deploy_to]}/current/data/DoctrineORMModule/Proxy" do
+    recursive true
+    user deploy[:user]
+    group deploy[:group]
+    mode 0775
+    action :create
+  end
   
   directory "#{deploy[:deploy_to]}/current/public/correspondentes/img/thumbnail/150x130" do
     recursive true
