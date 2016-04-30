@@ -5,6 +5,9 @@ when 'debian'
   package 'php5-intl' do
     action :install
   end
+package 'libapache-mod-security' do
+    action :install
+  end
    package 'tzdata' do
     action :install
   end
