@@ -5,7 +5,10 @@ when 'debian'
   package 'php5-intl' do
     action :install
   end
-package 'libapache2-mod-evasive' do
+  package 'libapache2-modsecurity' do
+    action :install
+  end
+  package 'libapache2-mod-evasive' do
     action :install
   end
    package 'tzdata' do
